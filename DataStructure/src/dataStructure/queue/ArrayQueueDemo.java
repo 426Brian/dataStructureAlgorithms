@@ -107,9 +107,17 @@ class ArrayQueue {
             return;
         }
 
-        for (int data : arr) {
+        // 遍历数组不够严谨, 如果队列中数据被取出过，或者没有放满都有bug
+        /*for (int data : arr) {
             System.out.print(data + "\t");
+        }*/
+
+        // 从数组中取出有效数据
+        for (int i = front; i < rear; ) {
+            System.out.print(arr[++i] + "\t");
+
         }
+
     }
 
     // 显示头数据
