@@ -221,20 +221,19 @@ class SingleLinkedList {
             return;
         }
 
-        HeroNode cur = head.next;
+        HeroNode originCur = head.next;
         // 利用另外一个头节点
         HeroNode newNHead = new HeroNode(0, "", "");
         // 辅助节点
-        HeroNode tmp = null;
-
+        HeroNode nextNode = null;
 
         // 将原先的每个节点依次摘下来拼接在 tmp 的头节点后
         // 实现反转后再将tmp 头节点 的next 赋给 原先链表的头节点
-        while (cur != null) {
-            tmp = cur.next;
-            cur.next = newNHead.next;
-            newNHead.next = cur;
-            cur = tmp;
+        while (originCur != null) {
+            nextNode = originCur.next;
+            originCur.next = newNHead.next;
+            newNHead.next = originCur;
+            originCur = nextNode;
 
         }
 
