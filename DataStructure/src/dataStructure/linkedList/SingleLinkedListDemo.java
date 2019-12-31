@@ -2,6 +2,7 @@ package dataStructure.linkedList;
 
 import javax.print.DocFlavor;
 import java.util.HashMap;
+import java.util.Stack;
 
 
 public class SingleLinkedListDemo {
@@ -191,7 +192,7 @@ class SingleLinkedList {
         int count = 0;
 
         // 省略了校验k 的代码
-        if(k <= 0||k > getLength()){
+        if (k <= 0 || k > getLength()) {
             return null;
         }
 
@@ -238,6 +239,28 @@ class SingleLinkedList {
         }
 
         head.next = newNHead.next;
+    }
+
+    // 从尾到头打印节点
+    public void reversePrint() {
+        if (isEmpty()) {
+            // 链表为空
+            return;
+        }
+
+        // 利用栈的 FILO
+        Stack<HeroNode> stack = new Stack();
+        HeroNode cur = head.next;
+        while (cur.next != null) {
+            stack.push(cur);
+            cur = cur.next;
+        }
+
+        // 出栈打印
+        while (stack.size() > 0) {
+            System.out.println(stack.pop());
+        }
+
     }
 
 }
