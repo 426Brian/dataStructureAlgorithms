@@ -130,18 +130,18 @@ class SingleLinkedList {
             return;
         }
 
-        HeroNode tmp = head;
-        HeroNode curNode = null;
+        HeroNode curNode = head;
+        HeroNode preNode = null;
 
         // 找到标签
         boolean flag = false;
 
-        while (tmp.next != null) {
-            curNode = tmp;
-            tmp = tmp.next;
-            if (tmp.no == heroNode.no) {
+        while (curNode.next != null) {
+            preNode = curNode;
+            curNode = curNode.next;
+            if (curNode.no == heroNode.no) {
                 // 找到
-                curNode.next = tmp.next;
+                preNode.next = curNode.next;
                 flag = true;
                 break;
             }

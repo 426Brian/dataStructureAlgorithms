@@ -61,7 +61,7 @@ class CircleQueue {
 
     // 有效数据个数
     public int size() {
-        return (rear - front + maxSize) % maxSize;
+        return (maxSize - front + rear) % maxSize;
     }
 
     // 显示头数据
