@@ -191,7 +191,9 @@ class SingleLinkedList {
         int count = 0;
 
         // 省略了校验k 的代码
-        // TODO: 2019/11/18
+        if(k <= 0||k > getLength()){
+            return null;
+        }
 
         if (isEmpty()) {
             System.out.println("链表为空 === ");
