@@ -34,52 +34,44 @@ class DoubleLinkedList {
 
     }
 
-    // 添加节点到单向链表
+    // 添加节点到双向链表
     public void add(HeroNode2 heroNode) {
         HeroNode2 tmp = head;
-        while (true) {
-            if (tmp.next == null) {
-                break;
-            }
 
-            // 如果没有找到最后，将tmp 后移
+        while (tmp.next != null) {
             tmp = tmp.next;
         }
+
         tmp.next = heroNode;
         heroNode.pre = tmp;
 
     }
 
+    // 修改节点
     public void update(HeroNode2 newHeroNode) {
-        if (head.next == null) {
+        if (isEmpty()) {
             System.out.println("链表为空");
             return;
         }
         // 找到要修改的节点, 根据no 编号
         // 定义辅助变量
-        HeroNode2 tmp = head.next;
+        HeroNode2 tmp = head;
         boolean flag = false;
 
-        while (true) {
-            if (tmp == null) {
-                // 遍历完
-                break;
-            }
-
+        while (tmp.next != null) {
+            tmp = tmp.next;
             if (tmp.no == newHeroNode.no) {
-                // 找到
+                tmp.name = newHeroNode.name;
+                tmp.nickName = newHeroNode.nickName;
                 flag = true;
                 break;
             }
 
-            tmp = tmp.next;
         }
 
-        if (flag) {
-            tmp.name = newHeroNode.name;
-            tmp.nickName = newHeroNode.nickName;
-        } else {
+        if (!flag) {
             System.out.printf("没有找到编号%d 的节点, 不能修改\n", newHeroNode.no);
+
         }
     }
 
@@ -102,6 +94,11 @@ class DoubleLinkedList {
             if (tmp.no == heroNode.no) {
                 // 找到
                 curNode.next = tmp.next;
+                if (tmp.next != null) {
+                    // 不是最后一个节点
+                    tmp.next.pre = curNode;
+                }
+
                 flag = true;
                 break;
             }
@@ -113,6 +110,7 @@ class DoubleLinkedList {
     }
 
 }
+
 // 定义HeroNode , 每个 HeroNode 对象是一个节点
 class HeroNode2 {
     public int no;
