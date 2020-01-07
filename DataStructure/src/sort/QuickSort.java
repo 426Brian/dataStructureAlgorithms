@@ -1,9 +1,24 @@
 package sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
     public static void main(String[] args) {
         int[] arr = {-9, 78, 0, 23, -567, 70};
-        quickSort(arr, 0, args.length - 1);
+        quickSort(arr, 0, arr.length - 1);
+
+        System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = new int[80000];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        quickSort(arr2, 0, arr2.length - 1);
+        long end = System.currentTimeMillis();
+
+        System.out.println("8万数据排序所用时间 " + (end - start));
     }
 
 
@@ -42,21 +57,22 @@ public class QuickSort {
                 l += 1;
             }
 
-            // 防止栈溢出
-            if (l == r) {
-                l += 1;
-                r -= 1;
-            }
+        }
 
-            // 向左递归
-            if (left < r) {
-                quickSort(arr, left, r);
-            }
+        // 防止栈溢出
+        if (l == r) {
+            l += 1;
+            r -= 1;
+        }
 
-            // 向右递归
-            if (right > l) {
-                quickSort(arr, l, right);
-            }
+        // 向左递归
+        if (left < r) {
+            quickSort(arr, left, r);
+        }
+
+        // 向右递归
+        if (right > l) {
+            quickSort(arr, l, right);
         }
     }
 }

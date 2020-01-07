@@ -5,8 +5,19 @@ import java.util.Arrays;
 public class RadixSort {
     public static void main(String[] args) {
         int[] arr = {53, 3, 542, 748, 14, 214};
-
+//        radixSortOrigin(arr);
         radixSort(arr);
+
+        int[] arr2 = new int[80000];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        radixSort(arr2);
+        long end = System.currentTimeMillis();
+
+        System.out.println("8万数据排序所用时间 " + (end - start));
     }
 
     public static void radixSort(int[] arr) {
@@ -42,13 +53,14 @@ public class RadixSort {
                     for (int l = 0; l < bucketElementCounts[k]; l++) {
                         arr[index++] = bucket[k][l];
                     }
+                    // 清空，为下一轮的初始数据做准备 !!!
                     bucketElementCounts[k] = 0;
 
                 }
             }
         }
 
-        System.out.println("处理完 === " + Arrays.toString(arr));
+//        System.out.println("处理完 === " + Arrays.toString(arr));
 
     }
 

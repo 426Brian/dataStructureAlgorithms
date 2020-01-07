@@ -7,6 +7,18 @@ public class SelectSort {
         int[] arr = {3, 9, -1, 10, 20};
 
         selectSort(arr);
+
+        int[] arr2 = new int[80000];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        selectSort(arr2);
+        long end = System.currentTimeMillis();
+
+        System.out.println("8万数据排序所用时间 "+(end-start));
+
     }
 
     /**
@@ -22,17 +34,16 @@ public class SelectSort {
                     min = arr[j]; // 重置min
                     minIndex = j; // 重置minIndex
 
-
                 }
             }
 
             if (minIndex != i) {
-                // 将最小值放在arr[0]
+                // 找到最小值, 交换
                 arr[minIndex] = arr[i];
                 arr[i] = min;
             }
 
-            System.out.println(Arrays.toString(arr));
+//            System.out.println(Arrays.toString(arr));
         }
 
 

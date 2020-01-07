@@ -10,6 +10,18 @@ public class MergerSort {
         mergerSort(arr, 0, arr.length -1, tmp);
 
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = new int[80000];
+        int[] tmp2 = new int[arr2.length];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        mergerSort(arr2, 0, arr2.length -1, tmp2);
+        long end = System.currentTimeMillis();
+
+        System.out.println("8万数据排序所用时间 " + (end - start));
     }
 
 

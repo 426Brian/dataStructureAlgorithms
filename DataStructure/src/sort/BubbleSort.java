@@ -55,12 +55,26 @@ public class BubbleSort {
                 System.out.println(j + " === " + Arrays.toString(arr));
             }
         }*/
+        System.out.println("排序前 === " + Arrays.toString(arr));
+        bubbleSort(arr);
+        System.out.println("排序后 === " + Arrays.toString(arr));
 
+        System.out.println("----------------------");
+        int[] arr2 = new int[80000];
 
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        System.out.println(Arrays.toString(arr2));
+        bubbleSort(arr2);
+        long end = System.currentTimeMillis();
+        System.out.println("8万数据排序所用时间 "+(end-start));
     }
 
 
-    public static void bubbleSort(int[] arr){
+    public static void bubbleSort(int[] arr) {
         System.out.println("优化后 ========= ");
         // 优化 flag 表示是否进行过交换
         int tmp;
@@ -76,10 +90,10 @@ public class BubbleSort {
 
             }
 
-            System.out.println("第"+(j+1) + "趟排序后 === " + Arrays.toString(arr));
-            if(!flag){
+//            System.out.println("第" + (j + 1) + "趟排序后 === " + Arrays.toString(arr));
+            if (!flag) {
                 break;
-            }else{
+            } else {
                 flag = false;
             }
         }

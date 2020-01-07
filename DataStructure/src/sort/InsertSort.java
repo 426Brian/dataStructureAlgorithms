@@ -8,13 +8,27 @@ public class InsertSort {
 
         insertSort(arr);
         System.out.println(Arrays.toString(arr));
+
+        int[] arr2 = new int[80000];
+        for (int i = 0; i < arr2.length; i++) {
+            arr2[i] = (int) (Math.random() * 8000000);
+        }
+
+        long start = System.currentTimeMillis();
+        insertSort(arr2);
+        long end = System.currentTimeMillis();
+
+        System.out.println("8万数据排序所用时间 " + (end - start));
+
     }
 
     public static void insertSort(int[] arr) {
+        int insertVal = 0;
+        int insertIndex = 0;
 
         for (int i = 1; i < arr.length; i++) {
-            int insertVal = arr[i];
-            int insertIndex = i - 1;
+            insertVal = arr[i];
+            insertIndex = i - 1;
 
             while (insertIndex >= 0 && insertVal < arr[insertIndex]) {
                 // 覆盖 arr[i] 的值，arr[i]已经保存在insertVal
@@ -25,7 +39,7 @@ public class InsertSort {
             }
 
             // while 循环结束找到inserIndex 的值
-            if(insertIndex + 1 != i){
+            if (insertIndex + 1 != i) {
                 // 是否需要赋值
                 arr[insertIndex + 1] = insertVal;
             }
