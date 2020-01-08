@@ -116,18 +116,18 @@ class BinaryTree {
     }
 
     // 删除节点
-    public void deleteNode(int no){
-        if(root !=null){
+    public void deleteNode(int no) {
+        if (root != null) {
             // 如果只有一个 root 节点， 立即判断 root 是否是待删除的节点
-            if(root.getNo() == no){
+            if (root.getNo() == no) {
                 root = null;
-            }else{
+            } else {
                 root.deleteNode(no);
             }
-        }else {
+        } else {
             System.out.println("空树，不能删除");
         }
-            
+
     }
 }
 
@@ -306,23 +306,25 @@ class HeroNode {
     }
 
     // 递归删除节点
-    public void deleteNode(int no){
+    public void deleteNode(int no) {
 
-        if(this.left !=null && this.left.no ==no){
+        if (this.left != null && this.left.no == no) {
             this.left = null;
             return;
         }
 
-        if(this.right !=null && this.right.no ==no){
+        if (this.right != null && this.right.no == no) {
             this.right = null;
             return;
         }
 
-        if(this.left !=null){
+        // 向左递归
+        if (this.left != null) {
             this.left.deleteNode(no);
         }
 
-        if(this.right !=null){
+        // 向右递归
+        if (this.right != null) {
             this.right.deleteNode(no);
         }
     }
