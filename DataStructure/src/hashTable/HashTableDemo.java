@@ -74,6 +74,15 @@ class HashTable {
         }
     }
 
+    // 查找 Emp
+    public Emp findEmpById(int id) {
+        int empLinkedListNo = hashFun(id);
+        Emp emp = empLinkedListArray[empLinkedListNo].findEmpById(id);
+
+        return emp;
+    }
+
+
 }
 
 // 创建链表
@@ -81,12 +90,15 @@ class EmpLinkedList {
     // 头指针，直接指向第一个Emp
     private Emp head;
 
-    public boolean isEmpty(){
-        if(head == null){
+    // 判断是否为空
+    public boolean isEmpty() {
+        if (head == null) {
             return true;
         }
         return false;
     }
+
+    // 添加员工
     public void addEmp(Emp emp) {
         if (head == null) {
             head = emp;
@@ -95,25 +107,22 @@ class EmpLinkedList {
 
         // 如果不是第一个，使用辅助指针，帮助定位到最后
         Emp curEmp = head;
-        while (true) {
-            if (curEmp.next == null) {
-                break;
-            }
+
+        while (curEmp.next != null) {
             curEmp = curEmp.next;
         }
-
         // 退出时直接将 emp 加入链表
         curEmp.next = emp;
     }
 
     // 遍历链表
     public void list(int i) {
-        if (head == null) {
+        if (isEmpty()) {
             // 链表为空
-            System.out.println("第"+i+"条链表为空");
+            System.out.println("第" + i + "条链表为空");
             return;
         }
-        System.out.println("第"+i+"条链表信息为： ");
+        System.out.println("第" + i + "条链表信息为： ");
         Emp curEmp = head;  // 辅助指针
 
         while (true) {
@@ -126,6 +135,27 @@ class EmpLinkedList {
 
         System.out.println();
     }
+
+    // 查找 emp
+    public Emp findEmpById(int id) {
+        if (isEmpty()) {
+            return null;
+        }
+
+        Emp cur = head;
+        while (true) {
+            if (cur.id == id) {
+                return cur;
+            }
+            if (cur.next != null) {
+                cur = cur.next;
+            } else {
+                return null;
+            }
+
+        }
+    }
+
 
 }
 

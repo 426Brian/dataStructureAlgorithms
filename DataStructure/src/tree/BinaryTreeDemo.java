@@ -1,6 +1,5 @@
 package tree;
 
-import java.util.function.BiPredicate;
 
 public class BinaryTreeDemo {
     public static void main(String[] args) {
@@ -280,6 +279,16 @@ class HeroNode {
 
         HeroNode resNode = null;
 
+        // 左子树
+        if (this.left != null) {
+            resNode = this.left.postOrderSearch(no);
+        }
+
+        if (resNode != null) {
+            return resNode;
+        }
+
+        // 右子树
         if (this.right != null) {
             resNode = this.right.postOrderSearch(no);
         }
@@ -293,9 +302,6 @@ class HeroNode {
             return this;
         }
 
-        if (this.left != null) {
-            resNode = this.left.postOrderSearch(no);
-        }
         return resNode;
     }
 

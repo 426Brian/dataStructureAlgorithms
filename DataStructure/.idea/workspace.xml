@@ -3,8 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8a1a9205-6621-4098-980d-44396549129b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/BinarySearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/BinarySearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/search/SeqSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/search/SeqSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hashTable/HashTableDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hashTable/HashTableDemo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tree/BinaryTreeDemo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tree/BinaryTreeDemo.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,10 +39,14 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/search/BinarySearch.java">
+        <entry file="file://$PROJECT_DIR$/src/tree/BinaryTreeDemo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="55" column="13" lean-forward="true" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+            <state relative-caret-position="394">
+              <caret line="191" column="17" lean-forward="true" selection-start-line="191" selection-start-column="17" selection-end-line="191" selection-end-column="17" />
+              <folding>
+                <element signature="e#1607#1608#0" expanded="true" />
+                <element signature="e#1639#1640#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -95,7 +99,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/DoubleLinkedListDemo.java" />
         <option value="$PROJECT_DIR$/src/Josepfu.java" />
         <option value="$PROJECT_DIR$/src/ArrayStack.java" />
         <option value="$PROJECT_DIR$/src/ArrayStackDemo.java" />
@@ -103,8 +106,6 @@
         <option value="$PROJECT_DIR$/src/PlandNotation.java" />
         <option value="$PROJECT_DIR$/src/BubbleSort.java" />
         <option value="$PROJECT_DIR$/src/search/FibonacciSearch.java" />
-        <option value="$PROJECT_DIR$/src/hashTable/HashTableDemo.java" />
-        <option value="$PROJECT_DIR$/src/tree/BinaryTreeDemo.java" />
         <option value="$PROJECT_DIR$/src/tree/HeapSort.java" />
         <option value="$PROJECT_DIR$/src/huffmanTree/HuffmanTree.java" />
         <option value="$PROJECT_DIR$/src/huffmanTree/HuffmanCode.java" />
@@ -146,6 +147,9 @@
         <option value="$PROJECT_DIR$/src/sort/RadixSort.java" />
         <option value="$PROJECT_DIR$/src/search/SeqSearch.java" />
         <option value="$PROJECT_DIR$/src/search/BinarySearch.java" />
+        <option value="$PROJECT_DIR$/src/search/InsertValSearch.java" />
+        <option value="$PROJECT_DIR$/src/hashTable/HashTableDemo.java" />
+        <option value="$PROJECT_DIR$/src/tree/BinaryTreeDemo.java" />
       </list>
     </option>
   </component>
@@ -156,22 +160,54 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="593" />
-    <option name="y" value="198" />
+    <option name="x" value="719" />
+    <option name="y" value="142" />
     <option name="width" value="1174" />
-    <option name="height" value="823" />
+    <option name="height" value="808" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="DataStructure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataStructure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataStructure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="DataStructure" type="b2602c69:ProjectViewProjectNode" />
+              <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="tree" type="462c0819:PsiDirectoryNode" />
+              <item name="BinaryTreeDemo.java" type="529ef68f:ClassesTreeStructureProvider$PsiClassOwnerTreeNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578403727950" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578464714614" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
@@ -191,7 +227,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.BinarySearch">
+  <component name="RunManager" selected="Application.BinaryTreeDemo">
     <configuration name="BinarySearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="search.BinarySearch" />
       <module name="DataStructure" />
@@ -205,12 +241,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InsertSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sort.InsertSort" />
+    <configuration name="BinaryTreeDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="tree.BinaryTreeDemo" />
       <module name="DataStructure" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sort.*" />
+          <option name="PATTERN" value="tree.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -218,12 +254,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MergerSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sort.MergerSort" />
+    <configuration name="HashTableDemo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="hashTable.HashTableDemo" />
       <module name="DataStructure" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sort.*" />
+          <option name="PATTERN" value="hashTable.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -231,12 +267,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="QuickSort" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="sort.QuickSort" />
+    <configuration name="InsertValSearch" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="search.InsertValSearch" />
       <module name="DataStructure" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="sort.*" />
+          <option name="PATTERN" value="search.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -258,19 +294,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.InsertSort" />
-      <item itemvalue="Application.QuickSort" />
-      <item itemvalue="Application.MergerSort" />
       <item itemvalue="Application.RadixSort" />
       <item itemvalue="Application.BinarySearch" />
+      <item itemvalue="Application.InsertValSearch" />
+      <item itemvalue="Application.HashTableDemo" />
+      <item itemvalue="Application.BinaryTreeDemo" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BinaryTreeDemo" />
+        <item itemvalue="Application.HashTableDemo" />
+        <item itemvalue="Application.InsertValSearch" />
         <item itemvalue="Application.BinarySearch" />
         <item itemvalue="Application.RadixSort" />
-        <item itemvalue="Application.QuickSort" />
-        <item itemvalue="Application.MergerSort" />
-        <item itemvalue="Application.InsertSort" />
       </list>
     </recent_temporary>
   </component>
@@ -330,12 +366,13 @@
       <workItem from="1578293162425" duration="9855000" />
       <workItem from="1578378696003" duration="16347000" />
       <workItem from="1578402068110" duration="14000" />
-      <workItem from="1578402138914" duration="1505000" />
+      <workItem from="1578402138914" duration="7544000" />
+      <workItem from="1578459003972" duration="4991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="294744000" />
+    <option name="totallyTimeSpent" value="305774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -347,16 +384,15 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="832" y="209" width="1174" height="823" extended-state="0" />
-    <editor active="true" />
+    <frame x="719" y="142" width="1174" height="808" extended-state="0" />
     <layout>
       <window_info id="Image Layers" order="0" />
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.51293105" side_tool="true" weight="0.31722054" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.4849138" weight="0.3168761" />
-      <window_info id="Structure" order="6" sideWeight="0.51508623" side_tool="true" weight="0.31711712" />
+      <window_info id="Favorites" order="4" sideWeight="0.5152395" side_tool="true" weight="0.3168761" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.48330915" visible="true" weight="0.3222621" />
+      <window_info id="Structure" order="6" sideWeight="0.51594204" side_tool="true" weight="0.3222621" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3153527" />
@@ -364,7 +400,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.25813448" />
-      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.35994196" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.5152395" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.42323652" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -387,9 +423,9 @@
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.51293105" side_tool="true" weight="0.31722054" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.4849138" visible="true" weight="0.3168761" />
-      <window_info id="Structure" order="6" sideWeight="0.51508623" side_tool="true" weight="0.31711712" />
+      <window_info id="Favorites" order="4" sideWeight="0.5152395" side_tool="true" weight="0.3168761" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.48330915" visible="true" weight="0.3222621" />
+      <window_info id="Structure" order="6" sideWeight="0.51594204" side_tool="true" weight="0.3222621" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="1" />
       <window_info anchor="bottom" id="Terminal" order="2" weight="0.3153527" />
@@ -397,7 +433,7 @@
       <window_info anchor="bottom" id="Event Log" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="5" />
       <window_info anchor="bottom" id="Find" order="6" weight="0.25813448" />
-      <window_info anchor="bottom" id="Run" order="7" visible="true" weight="0.35994196" />
+      <window_info anchor="bottom" id="Run" order="7" weight="0.5152395" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.42323652" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="10" weight="0.4" />
@@ -424,39 +460,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/jdk.scripting.nashorn/jdk/nashorn/internal/codegen/CompilerConstants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="752" column="33" selection-start-line="752" selection-start-column="33" selection-end-line="752" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/javafx.graphics/javafx/concurrent/Task.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="214">
-          <caret line="589" column="14" lean-forward="true" selection-start-line="589" selection-start-column="14" selection-end-line="589" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt://D:/software/Java/jdk10.0.2!/jdk.scripting.nashorn/jdk/nashorn/internal/runtime/JSONFunctions.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="273">
-          <caret line="25" column="11" lean-forward="true" selection-start-line="25" selection-start-column="11" selection-end-line="25" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#4018#0" expanded="true" />
-            <element signature="e#684#921#0" expanded="true" />
-            <element signature="e#920#921#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/java/util/concurrent/Future.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="90" column="53" selection-start-line="90" selection-start-column="53" selection-end-line="90" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/java/lang/Thread.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2159">
@@ -847,13 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/search/FibonacciSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/com/sun/java/util/jar/pack/PopulationCoding.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="129">
@@ -875,10 +871,53 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/FibonacciSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-853">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/search/InsertValSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="9" lean-forward="true" selection-start-line="9" selection-start-column="9" selection-end-line="9" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/search/BinarySearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="55" column="13" lean-forward="true" selection-start-line="55" selection-start-column="13" selection-end-line="55" selection-end-column="13" />
+        <state relative-caret-position="204">
+          <caret line="54" column="27" lean-forward="true" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/hashTable/HashTableDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="69" column="24" lean-forward="true" selection-start-line="69" selection-start-column="24" selection-end-line="69" selection-end-column="24" />
+          <folding>
+            <element signature="e#1708#1709#0" expanded="true" />
+            <element signature="e#1740#1741#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tree/HeapSort.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="18" column="25" lean-forward="true" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tree/BinaryTreeDemo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="394">
+          <caret line="191" column="17" lean-forward="true" selection-start-line="191" selection-start-column="17" selection-end-line="191" selection-end-column="17" />
+          <folding>
+            <element signature="e#1607#1608#0" expanded="true" />
+            <element signature="e#1639#1640#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
