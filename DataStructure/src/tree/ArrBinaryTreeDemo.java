@@ -38,11 +38,13 @@ class ArrBinaryTree {
         System.out.println(arr[index]);
 
         // 向左递归遍历
+        // 2*n+1
         if (2 * index + 1 < arr.length) {
             preOrder(2 * index + 1);
         }
 
         // 向右递归遍历
+        // 2*n+2
         if (2 * index + 2 < arr.length) {
             preOrder(2 * index + 2);
         }
