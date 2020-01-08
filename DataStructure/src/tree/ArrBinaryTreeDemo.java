@@ -20,7 +20,7 @@ class ArrBinaryTree {
         this.arr = arr;
     }
 
-    public void preOrder() {
+        public void preOrder() {
         preOrder(0);
     }
 
