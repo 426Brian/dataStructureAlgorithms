@@ -14,7 +14,6 @@ public class Graph {
     public Graph(int n) {
         edges = new int[n][n];
         vertexList = new ArrayList<String>(n);
-        numOfEdges = 0;
         isVisited = new boolean[n];
     }
 

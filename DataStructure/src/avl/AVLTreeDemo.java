@@ -17,6 +17,8 @@ public class AVLTreeDemo {
 
         System.out.println("没有平衡处理前 == ");
         System.out.println("树的高度 == " + avlTree.getRoot().height());
+        System.out.println("左子树的高度 == " + avlTree.getRoot().leftHeight());
+        System.out.println("右子树的高度 == " + avlTree.getRoot().rightHeight());
     }
 }
 

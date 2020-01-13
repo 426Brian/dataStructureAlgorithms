@@ -63,6 +63,7 @@ public class GreedyAlgorithm {
 
         // 定义给 maxKey, 一次遍历中最多能覆盖的为覆盖对应电台的key
         String maxKey = null;
+
         while (allAreas.size() != 0) {
             maxKey = null;
             for (String key : broadcoasts.keySet()) {
@@ -70,6 +71,7 @@ public class GreedyAlgorithm {
 
                 HashSet<String> areas = broadcoasts.get(key);
                 tmpSet.addAll(areas);
+
 
                 tmpSet.retainAll(allAreas);
 
