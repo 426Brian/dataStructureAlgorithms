@@ -23,6 +23,9 @@ public class Prim {
         minTree.createGraph(mGraph, verx, data, weight);
 
         minTree.showGraph(mGraph);
+
+        // 假设从顶点A 开始
+        minTree.prim(mGraph, 0);
     }
 }
 
@@ -46,6 +49,11 @@ class MinTree {
     }
 
     // prim 算法
+
+    /**
+     * @param graph
+     * @param v     从第几个顶点生成
+     */
     public void prim(MGraph graph, int v) {
         int[] isVisited = new int[graph.verx];
         isVisited[v] = 1;
@@ -68,7 +76,7 @@ class MinTree {
             }
 
             // 找到一条边是最小
-            System.out.println("边<"+graph.data[h1]+","+graph.data[h2]+"> 权值："+minWeight);
+            System.out.println("边<" + graph.data[h1] + "," + graph.data[h2] + "> 权值：" + minWeight);
             // 将当前节点设置为已访问
             isVisited[h2] = 1;
 
