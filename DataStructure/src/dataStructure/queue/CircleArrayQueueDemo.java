@@ -70,6 +70,6 @@ class CircleQueue {
             throw new RuntimeException("队列为空 ===");
         }
 
-        return arr[front + 1];
+        return arr[front];
     }
 }
