@@ -26,7 +26,7 @@ public class SingleLinkedListDemo {
 //        singleLinkedList.delNode(new HeroNode(1, "吴用", "智多星1"));
         singleLinkedList.showList();
 
-        System.out.println(singleLinkedList.getLength());
+        System.out.println("链表长度 == " + singleLinkedList.getLength());
         System.out.println(singleLinkedList.get(2));
 
         System.out.println("反转前 ==== ");
@@ -34,6 +34,9 @@ public class SingleLinkedListDemo {
         singleLinkedList.reverse();
         System.out.println("反转后 ==== ");
         singleLinkedList.showList();
+
+        System.out.println("逆序打印 == ");
+        singleLinkedList.reversePrint();
     }
 
 }
@@ -181,6 +184,7 @@ class SingleLinkedList {
         while (tmp.next != null) {
             length++;
             tmp = tmp.next;
+
         }
 
         return length;
@@ -238,6 +242,7 @@ class SingleLinkedList {
 
         }
 
+
         head.next = newNHead.next;
     }
 
@@ -250,10 +255,10 @@ class SingleLinkedList {
 
         // 利用栈的 FILO
         Stack<HeroNode> stack = new Stack();
-        HeroNode cur = head.next;
+        HeroNode cur = head;
         while (cur.next != null) {
-            stack.push(cur);
             cur = cur.next;
+            stack.push(cur);
         }
 
         // 出栈打印
