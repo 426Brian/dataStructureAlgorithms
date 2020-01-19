@@ -67,7 +67,6 @@ public class BubbleSort {
         }
 
         long start = System.currentTimeMillis();
-        System.out.println(Arrays.toString(arr2));
         bubbleSort(arr2);
         long end = System.currentTimeMillis();
         System.out.println("8万数据排序所用时间 "+(end-start));
