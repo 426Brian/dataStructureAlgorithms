@@ -11,7 +11,7 @@ public class InsertValSearch {
 
         System.out.println(Arrays.toString(arr));
 
-        int index = insertValSearch(arr, 0, arr.length - 1, 100);
+        int index = insertValSearch(arr, 0, arr.length - 1, 1);
 
         System.out.println("index = " + index);
 
@@ -29,8 +29,9 @@ public class InsertValSearch {
      */
     public static int insertValSearch(int[] arr, int left, int right, int findVal) {
 
-        int mid = left + (right - left) * (findVal - arr[left]) / arr[right] - arr[left];
-        if (mid >= 0 && mid < arr.length - 1) {
+        int mid = left + (right - left) * (findVal - arr[left]) / (arr[right] - arr[left]);
+
+        if (mid >= 0 && mid <= arr.length - 1) {
             // 防止数组下标越界
             while (left <= right) {
                 if (findVal > arr[mid]) {
