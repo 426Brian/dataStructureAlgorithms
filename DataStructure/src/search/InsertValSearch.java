@@ -30,17 +30,20 @@ public class InsertValSearch {
     public static int insertValSearch(int[] arr, int left, int right, int findVal) {
 
         int mid = left + (right - left) * (findVal - arr[left]) / arr[right] - arr[left];
-
-        while (left <= right && mid >= 0 && mid < arr.length - 1) {
-            if (findVal > arr[mid]) {
-                // 向右
-                mid = mid + 1;
-            } else if (findVal < arr[mid]) {
-                // 向左
-                mid = mid - 1;
-            } else {
-                return mid;
+        if (mid >= 0 && mid < arr.length - 1) {
+            // 防止数组下标越界
+            while (left <= right) {
+                if (findVal > arr[mid]) {
+                    // 向右
+                    mid = mid + 1;
+                } else if (findVal < arr[mid]) {
+                    // 向左
+                    mid = mid - 1;
+                } else {
+                    return mid;
+                }
             }
+
         }
 
         return -1;
