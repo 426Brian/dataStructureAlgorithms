@@ -31,8 +31,7 @@ public class InsertValSearch {
 
         int mid = left + (right - left) * (findVal - arr[left]) / arr[right] - arr[left];
 
-
-        while (left <= right && mid >= 0) {
+        while (left <= right && mid >= 0 && mid < arr.length - 1) {
             if (findVal > arr[mid]) {
                 // 向右
                 mid = mid + 1;
