@@ -7,7 +7,7 @@ public class ShellSort {
         int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
 
 
-        ShellSort2(arr);
+        ShellSort(arr);
 
         System.out.println("排序后 == " + Arrays.toString(arr));
 
@@ -51,7 +51,6 @@ public class ShellSort {
 
     // 希尔排序移位法
     public static void ShellSort2(int[] arr) {
-        int tmp = 0;
         int insertVal = 0;
         int insertIndex = 0;
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
