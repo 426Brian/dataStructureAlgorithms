@@ -53,6 +53,7 @@ public class ShellSort {
     public static void ShellSort2(int[] arr) {
         int insertVal = 0;
         int insertIndex = 0;
+        
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
 
             for (int i = gap; i < arr.length; i++) {
