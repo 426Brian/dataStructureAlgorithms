@@ -136,7 +136,7 @@ class ThreadBinaryTree {
 
 
     // 前序遍历查找
-    public tree.treadbinarytree.HeroNode preOrderSearch(int no) {
+    public HeroNode preOrderSearch(int no) {
         if (this.root != null) {
             return this.root.preOrderSearch(no);
         }
@@ -146,7 +146,7 @@ class ThreadBinaryTree {
 
 
     // 中序遍历查找
-    public tree.treadbinarytree.HeroNode infixOrderSearch(int no) {
+    public HeroNode infixOrderSearch(int no) {
         if (this.root != null) {
             return this.root.infixOrderSearch(no);
         }
@@ -154,7 +154,7 @@ class ThreadBinaryTree {
     }
 
     // 后续遍历查找
-    public tree.treadbinarytree.HeroNode postOrderSearch(int no) {
+    public HeroNode postOrderSearch(int no) {
         if (this.root != null) {
             return this.root.postOrderSearch(no);
         }
