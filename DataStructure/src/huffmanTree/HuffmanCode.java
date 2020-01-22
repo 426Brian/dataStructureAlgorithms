@@ -1,5 +1,6 @@
 package huffmanTree;
 
+import java.nio.ByteBuffer;
 import java.util.*;
 
 public class HuffmanCode {
@@ -11,10 +12,18 @@ public class HuffmanCode {
 
     public static void main(String[] args) {
         String content = "i like like like java do you like a java";
-        huffmanZip(content);
+        byte[] huffmanBytes = huffmanZip(content);
+
+        byte[] decode = decode(huffmanCodes, huffmanBytes);
+
+        System.out.println(new String(decode));
     }
 
+
+    // 霍夫曼编码
+
     /**
+     * 霍夫曼编码
      *
      * @param content 原始字符串
      * @return 经过霍夫曼处理后的字节数组（压缩后的数组）
@@ -40,11 +49,80 @@ public class HuffmanCode {
 
         // 将霍夫曼编码压缩成字节数组
         byte[] huffmanBytes = zip(contentBytes, huffmanCodes);
-        System.out.println("霍夫曼编码长度 == "+huffmanBytes.length+" 霍夫曼编码 ====== " + Arrays.toString(huffmanBytes));
+        System.out.println("霍夫曼编码长度 == " + huffmanBytes.length + " 霍夫曼编码 ====== " + Arrays.toString(huffmanBytes));
         return huffmanBytes;
     }
 
-    // 霍夫曼编码
+    // 霍夫曼解码
+
+    /**
+     * @param huffmanCodes 霍夫曼编码表 map
+     * @param huffmanBytes 霍夫曼编码得到的字节数组
+     * @return 原来字符串对应的数组
+     */
+    public static byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
+        // 1. huffmanBytes 对应二进制字符串
+        StringBuilder stringBuilder = new StringBuilder();
+
+        // 2. byte[] 转成二进制字符串
+        for (int i = 0; i < huffmanBytes.length; i++) {
+            boolean flag = (i == huffmanBytes.length - 1);
+            byte b = huffmanBytes[i];
+            stringBuilder.append(byteToString(!flag, b));
+        }
+
+        System.out.println("霍夫曼编码 == " + stringBuilder.toString());
+
+        // 字符串按照霍夫曼编码进行解码
+        HashMap<String, Byte> map = new HashMap<String, Byte>();
+        for (Map.Entry<Byte, String> entry : huffmanCodes.entrySet()) {
+            // 反向添加
+            map.put(entry.getValue(), entry.getKey());
+        }
+        ArrayList<Byte> list = new ArrayList<>();
+        for (int i = 0; i < stringBuilder.length(); ) {
+            int count = 1;
+            boolean flag = true;
+            Byte b = null;
+            while (flag) {
+                // 逐个拼接字符去匹配
+                String key = stringBuilder.substring(i, i + count);
+                b = map.get(key);
+                if (b == null) {
+                    // 没有匹配到
+                    count++;
+                } else {
+                    flag = false;
+                }
+            }
+            list.add(b);
+            i += count;
+        }
+
+        byte[] bytes = new byte[list.size()];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = list.get(i);
+        }
+
+        return bytes;
+    }
+
+
+    public static String byteToString(boolean flag, byte b) {
+        // 使用变量保存 b
+        int tmp = b;
+        if (flag) {
+            tmp |= 256; // 按位与 256  1 0000 0000 | 0000 0001 =>  1 0000 0001
+        }
+        String str = Integer.toBinaryString(tmp);
+        if (flag) {
+            return str.substring(str.length() - 8);
+        } else {
+            return str;
+        }
+
+    }
+
     /**
      * 传入的node 节点所有叶子节点的霍夫曼编码得到， 并放入集合中
      *
