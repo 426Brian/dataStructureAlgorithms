@@ -1,8 +1,6 @@
 package huffmanTree;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 
 public class HuffmanCode {
@@ -23,127 +21,47 @@ public class HuffmanCode {
         byte[] huffmanBytes = huffmanCode.huffmanZip(contentBytes);
 
         // 霍夫曼解码
-        byte[] decode = huffmanCode.decode(huffmanCodes, huffmanBytes);
+        byte[] decodes = huffmanCode.decode(huffmanCodes, huffmanBytes);
 
-        System.out.println(new String(decode));
+        System.out.println(new String(decodes));
     }
 
 
-    // 霍夫曼编码
+    // 霍夫曼解压缩文件
+    public static void unZipFile(String srcFile, String destFile) {
+        InputStream is = null;
+        OutputStream os = null;
+        ObjectInputStream ois = null;
 
-    /**
-     * 霍夫曼编码
-     *
-     * @param contentBytes 原始字符串字节数组
-     * @return 经过霍夫曼处理后的字节数组（压缩后的数组）
-     */
-    public byte[] huffmanZip(byte[] contentBytes) {
-        System.out.println("contentBytes.length == " + contentBytes.length);
-        // 字节数组对应转成树的节点（用list 保存）
-        List<Node2> nodes = getNodes(contentBytes);
-        System.out.println("nodes == " + nodes);
+        try {
+            is = new FileInputStream(srcFile);
+            ois = new ObjectInputStream(is);
 
-        // 利用list 保存的树的节点生成霍夫曼树
-        Node2 huffmanRoot = createHuffmanTree(nodes);
+            // 读取字节数组
+            byte[] huffmanBytes = (byte[]) ois.readObject();
+            // 读取霍夫曼编码表
+            Map<Byte, String> codes = (Map<Byte, String>) ois.readObject();
 
-        // 前序遍历霍夫曼树
-        preOrder(huffmanRoot);
+            // 解码
+            byte[] bytes = decode(huffmanCodes, huffmanBytes);
 
-        // 利用霍夫曼树得到霍夫曼编码
-        huffmanCodes = getCode(huffmanRoot, "", stringBuilder);
-        System.out.println("生成的霍夫曼编码表 ====== " + huffmanCodes);
+            os = new FileOutputStream(destFile);
+            os.write(bytes);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                os.close();
+                ois.close();
+                is.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
 
-        // 将霍夫曼编码压缩成字节数组
-        byte[] huffmanBytes = zip(contentBytes, huffmanCodes);
-        System.out.println("霍夫曼编码长度 == " + huffmanBytes.length + " 霍夫曼编码 ====== " + Arrays.toString(huffmanBytes));
-        return huffmanBytes;
+        }
     }
 
     // 霍夫曼解码
-
-    /**
-     * @param huffmanCodes 霍夫曼编码表 map
-     * @param huffmanBytes 霍夫曼编码得到的字节数组
-     * @return 原来字符串对应的数组
-     */
-    public byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
-        // 1. huffmanBytes 对应二进制字符串
-        StringBuilder stringBuilder = new StringBuilder();
-
-        // 2. byte[] 转成二进制字符串
-        for (int i = 0; i < huffmanBytes.length; i++) {
-            boolean flag = (i == huffmanBytes.length - 1);
-            byte b = huffmanBytes[i];
-            stringBuilder.append(byteToString(!flag, b));
-        }
-
-        System.out.println("霍夫曼编码 == " + stringBuilder.toString());
-
-        // 字符串按照霍夫曼编码进行解码
-        HashMap<String, Byte> map = new HashMap<String, Byte>();
-        for (Map.Entry<Byte, String> entry : huffmanCodes.entrySet()) {
-            // 反向添加
-            map.put(entry.getValue(), entry.getKey());
-        }
-        ArrayList<Byte> list = new ArrayList<>();
-        for (int i = 0; i < stringBuilder.length(); ) {
-            int count = 1;
-            boolean flag = true;
-            Byte b = null;
-            while (flag) {
-                // 逐个拼接字符去匹配
-                String key = stringBuilder.substring(i, i + count);
-                b = map.get(key);
-                if (b == null) {
-                    // 没有匹配到
-                    count++;
-                } else {
-                    flag = false;
-                }
-            }
-            list.add(b);
-            i += count;
-        }
-
-        byte[] bytes = new byte[list.size()];
-        for (int i = 0; i < bytes.length; i++) {
-            bytes[i] = list.get(i);
-        }
-
-        return bytes;
-    }
-
-    // 霍夫曼压缩文件
-    public static void zipFile(String src, String dest) {
-        FileInputStream is = null;
-        FileOutputStream os = null;
-        ObjectOutputStream obs = null;
-        try {
-
-            is = new FileInputStream(src);
-            byte[] b = new byte[is.available()];
-            is.read(b);
-            is.close();
-
-            // 霍夫曼压缩后的字节数组
-            byte[] huffmanBytes = huffmanZip(b);
-
-            os = new FileOutputStream(dest);
-
-            obs = new ObjectOutputStream(os);
-
-            // 利用对象流将霍夫曼编码后的字节数组写入压缩文件
-            obs.writeObject(huffmanBytes);
-
-            // 写入霍夫曼编码方便后续恢复文件
-            obs.writeObject(huffmanCodes);
-
-            obs.close();
-            os.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     public static String byteToString(boolean flag, byte b) {
         // 使用变量保存 b
@@ -301,6 +219,124 @@ public class HuffmanCode {
         // 返回霍夫曼树的 root 节点
         return nodes.get(0);
 
+    }
+
+    /**
+     * 霍夫曼编码
+     *
+     * @param contentBytes 原始字符串字节数组
+     * @return 经过霍夫曼处理后的字节数组（压缩后的数组）
+     */
+    public static byte[] huffmanZip(byte[] contentBytes) {
+        System.out.println("contentBytes.length == " + contentBytes.length);
+        // 字节数组对应转成树的节点（用list 保存）
+        List<Node2> nodes = getNodes(contentBytes);
+        System.out.println("nodes == " + nodes);
+
+        // 利用list 保存的树的节点生成霍夫曼树
+        Node2 huffmanRoot = createHuffmanTree(nodes);
+
+        // 前序遍历霍夫曼树
+        preOrder(huffmanRoot);
+
+        // 利用霍夫曼树得到霍夫曼编码
+        huffmanCodes = getCode(huffmanRoot, "", stringBuilder);
+        System.out.println("生成的霍夫曼编码表 ====== " + huffmanCodes);
+
+        // 将霍夫曼编码压缩成字节数组
+        byte[] huffmanBytes = zip(contentBytes, huffmanCodes);
+        System.out.println("霍夫曼编码长度 == " + huffmanBytes.length + " 霍夫曼编码 ====== " + Arrays.toString(huffmanBytes));
+        return huffmanBytes;
+    }
+
+    /**
+     * @param huffmanCodes 霍夫曼编码表 map
+     * @param huffmanBytes 霍夫曼编码得到的字节数组
+     * @return 原来字符串对应的数组
+     */
+    public static byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
+        // 1. huffmanBytes 对应二进制字符串
+        StringBuilder stringBuilder = new StringBuilder();
+
+        // 2. byte[] 转成二进制字符串
+        for (int i = 0; i < huffmanBytes.length; i++) {
+            boolean flag = (i == huffmanBytes.length - 1);
+            byte b = huffmanBytes[i];
+            stringBuilder.append(byteToString(!flag, b));
+        }
+
+        System.out.println("霍夫曼编码 == " + stringBuilder.toString());
+
+        // 字符串按照霍夫曼编码进行解码
+        HashMap<String, Byte> map = new HashMap<String, Byte>();
+        for (Map.Entry<Byte, String> entry : huffmanCodes.entrySet()) {
+            // 反向添加
+            map.put(entry.getValue(), entry.getKey());
+        }
+        ArrayList<Byte> list = new ArrayList<>();
+        for (int i = 0; i < stringBuilder.length(); ) {
+            int count = 1;
+            boolean flag = true;
+            Byte b = null;
+            while (flag) {
+                // 逐个拼接字符去匹配
+                String key = stringBuilder.substring(i, i + count);
+                b = map.get(key);
+                if (b == null) {
+                    // 没有匹配到
+                    count++;
+                } else {
+                    flag = false;
+                }
+            }
+            list.add(b);
+            i += count;
+        }
+
+        byte[] bytes = new byte[list.size()];
+        for (int i = 0; i < bytes.length; i++) {
+            bytes[i] = list.get(i);
+        }
+
+        return bytes;
+    }
+
+    // 霍夫曼压缩文件
+    public void zipFile(String src, String dest) {
+        FileInputStream is = null;
+        FileOutputStream os = null;
+        ObjectOutputStream obs = null;
+        try {
+
+            is = new FileInputStream(src);
+            byte[] b = new byte[is.available()];
+            is.read(b);
+            is.close();
+
+            // 霍夫曼压缩后的字节数组
+            byte[] huffmanBytes = huffmanZip(b);
+
+            os = new FileOutputStream(dest);
+
+            obs = new ObjectOutputStream(os);
+
+            // 利用对象流将霍夫曼编码后的字节数组写入压缩文件
+            obs.writeObject(huffmanBytes);
+
+            // 写入霍夫曼编码方便后续恢复文件
+            obs.writeObject(huffmanCodes);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                obs.close();
+                os.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
     }
 }
 
