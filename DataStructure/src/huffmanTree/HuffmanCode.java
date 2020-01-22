@@ -1,6 +1,8 @@
 package huffmanTree;
 
-import java.nio.ByteBuffer;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.util.*;
 
 public class HuffmanCode {
@@ -12,9 +14,16 @@ public class HuffmanCode {
 
     public static void main(String[] args) {
         String content = "i like like like java do you like a java";
-        byte[] huffmanBytes = huffmanZip(content);
+        byte[] contentBytes = content.getBytes();
 
-        byte[] decode = decode(huffmanCodes, huffmanBytes);
+        HuffmanCode huffmanCode = new HuffmanCode();
+
+
+        // 霍夫曼编码
+        byte[] huffmanBytes = huffmanCode.huffmanZip(contentBytes);
+
+        // 霍夫曼解码
+        byte[] decode = huffmanCode.decode(huffmanCodes, huffmanBytes);
 
         System.out.println(new String(decode));
     }
@@ -25,14 +34,11 @@ public class HuffmanCode {
     /**
      * 霍夫曼编码
      *
-     * @param content 原始字符串
+     * @param contentBytes 原始字符串字节数组
      * @return 经过霍夫曼处理后的字节数组（压缩后的数组）
      */
-    public static byte[] huffmanZip(String content) {
-
-        byte[] contentBytes = content.getBytes();
+    public byte[] huffmanZip(byte[] contentBytes) {
         System.out.println("contentBytes.length == " + contentBytes.length);
-
         // 字节数组对应转成树的节点（用list 保存）
         List<Node2> nodes = getNodes(contentBytes);
         System.out.println("nodes == " + nodes);
@@ -44,7 +50,7 @@ public class HuffmanCode {
         preOrder(huffmanRoot);
 
         // 利用霍夫曼树得到霍夫曼编码
-        getCode(huffmanRoot, "", stringBuilder);
+        huffmanCodes = getCode(huffmanRoot, "", stringBuilder);
         System.out.println("生成的霍夫曼编码表 ====== " + huffmanCodes);
 
         // 将霍夫曼编码压缩成字节数组
@@ -60,7 +66,7 @@ public class HuffmanCode {
      * @param huffmanBytes 霍夫曼编码得到的字节数组
      * @return 原来字符串对应的数组
      */
-    public static byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
+    public byte[] decode(Map<Byte, String> huffmanCodes, byte[] huffmanBytes) {
         // 1. huffmanBytes 对应二进制字符串
         StringBuilder stringBuilder = new StringBuilder();
 
@@ -107,6 +113,37 @@ public class HuffmanCode {
         return bytes;
     }
 
+    // 霍夫曼压缩文件
+    public static void zipFile(String src, String dest) {
+        FileInputStream is = null;
+        FileOutputStream os = null;
+        ObjectOutputStream obs = null;
+        try {
+
+            is = new FileInputStream(src);
+            byte[] b = new byte[is.available()];
+            is.read(b);
+            is.close();
+
+            // 霍夫曼压缩后的字节数组
+            byte[] huffmanBytes = huffmanZip(b);
+
+            os = new FileOutputStream(dest);
+
+            obs = new ObjectOutputStream(os);
+
+            // 利用对象流将霍夫曼编码后的字节数组写入压缩文件
+            obs.writeObject(huffmanBytes);
+
+            // 写入霍夫曼编码方便后续恢复文件
+            obs.writeObject(huffmanCodes);
+
+            obs.close();
+            os.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     public static String byteToString(boolean flag, byte b) {
         // 使用变量保存 b
@@ -130,7 +167,7 @@ public class HuffmanCode {
      * @param code          路径： 左子节点是 0 右子节点是 1
      * @param stringBuilder 用于拼接路径
      */
-    public static void getCode(Node2 node, String code, StringBuilder stringBuilder) {
+    public static Map<Byte, String> getCode(Node2 node, String code, StringBuilder stringBuilder) {
         StringBuilder stringBuilder2 = new StringBuilder(stringBuilder);
         stringBuilder2.append(code);
 
@@ -147,6 +184,8 @@ public class HuffmanCode {
                 huffmanCodes.put(node.data, stringBuilder2.toString());
             }
         }
+
+        return huffmanCodes;
     }
 
     /**
