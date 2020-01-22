@@ -300,7 +300,7 @@ public class HuffmanCode {
 
         return bytes;
     }
-
+    
     // 霍夫曼压缩文件
     public void zipFile(String src, String dest) {
         FileInputStream is = null;
