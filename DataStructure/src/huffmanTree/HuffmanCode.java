@@ -11,27 +11,40 @@ public class HuffmanCode {
 
     public static void main(String[] args) {
         String content = "i like like like java do you like a java";
+        huffmanZip(content);
+    }
+
+    /**
+     *
+     * @param content 原始字符串
+     * @return 经过霍夫曼处理后的字节数组（压缩后的数组）
+     */
+    public static byte[] huffmanZip(String content) {
+
         byte[] contentBytes = content.getBytes();
+        System.out.println("contentBytes.length == " + contentBytes.length);
 
-        System.out.println(contentBytes.length);
-
+        // 字节数组对应转成树的节点（用list 保存）
         List<Node2> nodes = getNodes(contentBytes);
-        System.out.println(nodes);
+        System.out.println("nodes == " + nodes);
 
+        // 利用list 保存的树的节点生成霍夫曼树
         Node2 huffmanRoot = createHuffmanTree(nodes);
 
+        // 前序遍历霍夫曼树
         preOrder(huffmanRoot);
 
-        System.out.println("霍夫曼编码 ====== ");
-
+        // 利用霍夫曼树得到霍夫曼编码
         getCode(huffmanRoot, "", stringBuilder);
-        System.out.println("霍夫曼编码 ====== " + huffmanCodes);
+        System.out.println("生成的霍夫曼编码表 ====== " + huffmanCodes);
 
-        zip(contentBytes, huffmanCodes);
+        // 将霍夫曼编码压缩成字节数组
+        byte[] huffmanBytes = zip(contentBytes, huffmanCodes);
+        System.out.println("霍夫曼编码长度 == "+huffmanBytes.length+" 霍夫曼编码 ====== " + Arrays.toString(huffmanBytes));
+        return huffmanBytes;
     }
 
     // 霍夫曼编码
-
     /**
      * 传入的node 节点所有叶子节点的霍夫曼编码得到， 并放入集合中
      *
@@ -64,7 +77,7 @@ public class HuffmanCode {
      * @return 处理后的byte[]
      * 举例： String content = "i like like like java do you like a java" -> byte[]
      */
-    public static void zip(byte[] bytes, Map<Byte, String> huffmanCodes) {
+    public static byte[] zip(byte[] bytes, Map<Byte, String> huffmanCodes) {
         // 1. 利用 huffmanCodes 将bytes 转成霍夫曼编码对应的字符串
         StringBuilder stringBuilder = new StringBuilder();
         // 遍历
@@ -79,8 +92,27 @@ public class HuffmanCode {
         } else {
             len = stringBuilder.length() / 8 + 1;
         }
+        // len = (stringBuilder.length()+7)/8; (一行代码代替77 行到 81 行代码)
 
+        // 压缩后的byte[]
+        byte[] by = new byte[len];
+        int index = 0;
 
+        for (int i = 0; i < stringBuilder.length(); i += 8) {
+            String str;
+            if (i + 8 > stringBuilder.length()) {
+                // 不够8 位
+                str = stringBuilder.substring(i);
+            } else {
+                str = stringBuilder.substring(i, i + 8);
+            }
+
+            // str 转成byte[]
+            by[index] = (byte) Integer.parseInt(str, 2); // radix: 2 表示二进制
+            index++;
+        }
+
+        return by;
 
     }
 
