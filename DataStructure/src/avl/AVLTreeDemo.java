@@ -181,6 +181,7 @@ class Node {
         return right.height();
     }
 
+    // 左旋转
     public void leftRotate() {
         // 创建新节点， 以当前根节点的值
         Node newNode = new Node(value);
@@ -188,7 +189,17 @@ class Node {
         // 新节点左子树设置成当前节点的左子树
         newNode.left = left;
 
+        // 新节点右子树设置成当前节点的右子树的左子树
         newNode.right = right.left;
+
+        // 当前节点的值替换成右子节点的值
+        value = right.value;
+
+        // 当前节点的右子树设置成当前节点右子树的右子树
+        right = right.right;
+
+        // 当前节点的左子树设置成新的节点
+        left = newNode;
 
     }
 
@@ -252,6 +263,12 @@ class Node {
                 this.right = node;
             } else {
                 this.right.add(node);
+            }
+        }
+
+        if(rightHeight() - leftHeight() > 1){
+            if(right !=null && right.rightHeight()< right.leftHeight()){
+
             }
         }
     }
