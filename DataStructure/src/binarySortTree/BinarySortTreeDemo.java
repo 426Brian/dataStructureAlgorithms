@@ -68,36 +68,36 @@ class BinarySortTree {
             if (targetNode == null) {
                 return;
             }
-            // 只要root 节点
+            // 只有root 节点
             if (root.left == null && root.right == null) {
                 root = null;
                 return;
             }
 
             Node parentNode = searchParent(value);
-            // 叶子节点
+            // 被删除节点是叶子节点
             if (targetNode.left == null && targetNode.right == null) {
                 if (parentNode.left != null && parentNode.left.value == value) {
-                    // 被删的是父节点的左子节点
+                    // 被删的节点是父节点的左子节点
                     parentNode.left = null;
                 } else if (parentNode.right != null && parentNode.right.value == value) {
-                    // 被删的是父节点的右子节点
+                    // 被删的节点是父节点的右子节点
                     parentNode.right = null;
                 }
 
             } else if (targetNode.left != null && targetNode.right != null) {
-                // 有两颗子树的节点
+                // 有两颗子树的节点, 找到右子树的最小值的节点删除, 并将其值赋给被删除节点
                 int minVal = delRightTreeMin(targetNode.right);
                 targetNode.value = minVal;
             } else {
-                // 有左子树的节点
+                // 被删除的节点是只有左子树的节点
                 if (targetNode.left != null) {
                     if (parentNode != null) {
                         if (parentNode.left.value == value) {
-                            // 父节点的左子节点
+                            // 被删除节点是父节点的左子节点
                             parentNode.left = targetNode.left;
                         } else {
-                            // 父节点的右子节点
+                            // 被删除节点是父节点的右子节点
                             parentNode.right = targetNode.left;
                         }
                     } else {
@@ -106,16 +106,16 @@ class BinarySortTree {
                     }
 
                 } else {
+                    // 被删除的节点是只有右子树的节点
                     if (parentNode != null) {
-                        // 有右子树树的节点
                         if (parentNode.left.value == value) {
-                            // 父节点的左子节点
+                            // 被删除节点是父节点的左子节点
                             parentNode.left = targetNode.right;
                         } else {
-                            // 父节点的右子节点
+                            // 被删除节点是父节点的右子节点
                             parentNode.right = targetNode.right;
                         }
-                    }else {
+                    } else {
                         root = targetNode.right;
                     }
 
@@ -160,33 +160,34 @@ class Node {
             // 找到
             return this;
         } else if (value < this.value) {
-            // 向左子树查找
-            if (left == null) {
+            // 向左递归
+            if (this.left == null) {
                 return null;
-
             }
-            return this.left.search(value);
 
+            return this.left.search(value);
         } else {
-            // 向右子树查找
+            // 向右递归
             if (this.right == null) {
                 return null;
             }
+
             return this.right.search(value);
         }
     }
 
-    // 要删除的节点的父节点
+    // 查找要删除节点的父节点
     public Node searchParent(int value) {
         if ((this.left != null && this.left.value == value) ||
                 (this.right != null && this.right.value == value)) {
             return this;
         } else {
-            // 小于当前值，当前左子节点不为空
             if (value < this.value && this.left != null) {
-                return this.left.search(value);
+                // 向左递归
+                return this.left.searchParent(value);
             } else if (value >= this.value && this.right != null) {
-                return this.right.search(value);
+                // 向右递归
+                return this.right.searchParent(value);
             } else {
                 // 没有找到父节点
                 return null;
