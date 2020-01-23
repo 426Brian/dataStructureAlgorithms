@@ -122,7 +122,7 @@ public class Graph {
 
     // 深度优先遍历
     // i  第一次是 0
-    public void dfs(boolean[] isVisited, int i) {
+    private void dfs(boolean[] isVisited, int i) {
         // 首先我们访问该结点， 输出
         System.out.print(getValueByIndex(i) + " -> ");
         // 将该节点设置成已访问
