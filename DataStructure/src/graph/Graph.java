@@ -35,6 +35,7 @@ public class Graph {
         graph.insertEdge(1, 3, 1);
         graph.insertEdge(1, 4, 1);
 
+
         // 显示
         graph.showGraph();
 
@@ -143,7 +144,9 @@ public class Graph {
         }
     }
 
-    // 重载dfs, 遍历所有节点
+    /**
+     * 重载DFS(depth-first-search) 遍历所有节点为解决非连通图的问题
+     */
     public void dfs() {
         for (int i = 0; i < getNumOfVertex(); i++) {
             if (!isVisited[i]) {
@@ -187,7 +190,10 @@ public class Graph {
         }
     }
 
-    // 广度优先搜索针对所有节点
+
+    /**
+     * 重载BFS(breadth-first-search) 遍历所有节点为解决非连通图的问题
+     */
     public void bfs() {
         isVisited = new boolean[vertexList.size()];
         for (int i = 0; i < getNumOfVertex(); i++) {
@@ -196,4 +202,5 @@ public class Graph {
             }
         }
     }
+
 }
