@@ -32,6 +32,8 @@ public class Kruskal {
                 }
             }
         }
+
+        System.out.println("edgeNum == " + edgeNum);
     }
 
     public static void main(String[] args) {
@@ -52,10 +54,10 @@ public class Kruskal {
 
         EData[] edges = kruscal.getEdges();
 
-        System.out.println("排序前 == " + Arrays.toString(edges));
+        System.out.println("排序前 == 边数[" + edges.length + "] ** " + Arrays.toString(edges));
 
         kruscal.bubbleSort(edges);
-        System.out.println("排序后 == " + Arrays.toString(edges));
+        System.out.println("排序后 == 边数[" + edges.length + "] ** " + Arrays.toString(edges));
 
         kruscal.kruskal();
     }
@@ -130,7 +132,7 @@ public class Kruskal {
     public void kruskal() {
         int index = 0;
         int[] ends = new int[edgeNum];
-        EData[] rets = new EData[edgeNum];
+        EData[] rets = new EData[vertex.length - 1];
 
         // 所有边的集合
         EData[] edges = getEdges();
@@ -146,13 +148,16 @@ public class Kruskal {
             int m = getEnd(ends, p1);
             int n = getEnd(ends, p2);
 
+            // Kruskal 算法最难之处 判断构成回路
             if (m != n) {
                 ends[m] = n;
                 rets[index++] = edges[i];
             }
         }
-
         System.out.println("最小生成树 " + Arrays.toString(rets));
+        for (EData edata : rets) {
+            System.out.println("最小生成树 " + edata);
+        }
 
     }
 
