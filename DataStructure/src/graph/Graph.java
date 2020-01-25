@@ -179,12 +179,14 @@ public class Graph {
             while (w != -1) {
                 // 找到
                 if (!isVisited[w]) {
+                    // 未访问过
                     System.out.println(getValueByIndex(i) + " -> ");
                     isVisited[w] = true;
 
                     linkedList.addLast(w);
                 }
 
+                // 以u 为前驱节点, 找到w 后面的下一个节点
                 w = getNextNeighbor(u, w);
             }
         }
