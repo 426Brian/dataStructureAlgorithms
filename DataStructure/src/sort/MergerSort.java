@@ -7,7 +7,7 @@ public class MergerSort {
         int[] arr = {8, 4, 5, 7, 1, 3, 6, 2};
         int[] tmp = new int[arr.length];
 
-        mergerSort(arr, 0, arr.length -1, tmp);
+        mergerSort(arr, 0, arr.length - 1, tmp);
 
         System.out.println(Arrays.toString(arr));
 
@@ -18,7 +18,7 @@ public class MergerSort {
         }
 
         long start = System.currentTimeMillis();
-        mergerSort(arr2, 0, arr2.length -1, tmp2);
+        mergerSort(arr2, 0, arr2.length - 1, tmp2);
         long end = System.currentTimeMillis();
 
         System.out.println("8万数据排序所用时间 " + (end - start));
@@ -59,38 +59,30 @@ public class MergerSort {
                 // 左边当前元素小于等于右边当前元素， 左边当前元素拷贝到tmp 数组
                 // 然后 t 后移 i 后移
 
-                tmp[t] = arr[i];
-                t++;
-                i++;
+                tmp[t++] = arr[i++];
+
             } else {
-                tmp[t] = arr[j];
-                t++;
-                j++;
+                tmp[t++] = arr[j++];
+
             }
         }
 
         // 2. 剩余数据一边的数据全部填充到tmp
         while (i <= mid) {
             // 左边剩余
-            tmp[t] = arr[i];
-            t++;
-            i++;
+            tmp[t++] = arr[i++];
         }
 
         while (j <= right) {
             // 右边剩余
-            tmp[t] = arr[j];
-            t++;
-            j++;
+            tmp[t++] = arr[j++];
         }
 
         // 3. 将tmp 数组元素拷贝到 arr
         t = 0;
         int tmpLeft = left;
         while (tmpLeft <= right) {
-            arr[tmpLeft] = tmp[t];
-            t++;
-            tmpLeft++;
+            arr[tmpLeft++] = tmp[t++];
         }
     }
 }

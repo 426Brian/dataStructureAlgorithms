@@ -30,10 +30,15 @@ public class TwoArraySearch {
 
         }
 
-        if (arr1[m - 1] > arr2[n - 1]) {
-            tmp[m + n - 1] = arr1[m - 1];
-        } else {
-            tmp[m + n - 1] = arr2[n - 1];
+
+        while (a < m) {
+            // arr1 中还有数据
+            tmp[index++] = arr1[a++];
+        }
+
+        while (b < n) {
+            // arr2 中还有数据
+            tmp[index++] = arr2[b++];
         }
 
         System.out.println(Arrays.toString(tmp));
