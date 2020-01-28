@@ -5,7 +5,7 @@ import java.util.Arrays;
 public class TwoArraySearch {
     public static void main(String[] args) {
         int[] arr = {1, 5, 32, 41, 80};
-        int[] arr2 = {21, 26, 45, 54, 55, 57, 60, 90};
+        int[] arr2 = {21, 26, 45, 54, 55, 57, 60, 81, 90};
 
         int k = 3;
 
@@ -22,10 +22,10 @@ public class TwoArraySearch {
         int b = 0;
 
         while (a < m && b < n) {
-            if (arr1[a] >= arr2[b]) {
-                tmp[index++] = arr2[b++];
-            } else {
+            if (arr1[a] <= arr2[b]) {
                 tmp[index++] = arr1[a++];
+            } else {
+                tmp[index++] = arr2[b++];
             }
 
         }

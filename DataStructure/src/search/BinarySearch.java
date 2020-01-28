@@ -89,6 +89,7 @@ public class BinarySearch {
             } else {
                 int tmp = mid - 1;
                 while (true) {
+                    // 向左查找
                     if (tmp < 0 || arr[tmp] != findVal) {
                         break;
                     }
