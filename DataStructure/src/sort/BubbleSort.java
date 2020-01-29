@@ -93,8 +93,38 @@ public class BubbleSort {
             if (!flag) {
                 break;
             } else {
+                // flag 在外层for 循环的外部定义赋值, 所以每循环一轮需要重新赋值 跟下面的 bubbleSortModify(int[] arr) 方法比较
                 flag = false;
             }
+        }
+    }
+
+    public static void bubbleSortModify(int[] arr) {
+        System.out.println("优化后 ========= ");
+        int tmp;
+
+        for (int j = 0; j < arr.length - 1; j++) {
+            // 优化 flag 表示是否进行过交换
+            boolean flag = false;
+            for (int i = 0; i < arr.length - 1 - j; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    flag = true;
+                    tmp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = tmp;
+                }
+
+            }
+
+            if (!flag) {
+                break;
+            }
+
+            // flag 在外层for 循环的内部定义赋值, 所以每循环一轮都会重新定义, 所以不需要特意重新赋值对比上面的 bubbleSort(int[] arr)方法
+           /* else {
+
+                flag = false;
+            }*/
         }
     }
 }
