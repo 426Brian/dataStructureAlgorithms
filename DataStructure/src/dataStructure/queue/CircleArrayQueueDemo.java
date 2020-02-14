@@ -1,6 +1,59 @@
 package dataStructure.queue;
 
+import java.util.Scanner;
+
 public class CircleArrayQueueDemo {
+    public static void main(String[] args) {
+        CircleQueue circleQueue = new CircleQueue(3);
+        char key = ' ';
+        Scanner scanner = new Scanner(System.in);
+        boolean loop = true;
+
+        while (loop) {
+            System.out.println("s(show) 显示队列");
+            System.out.println("e(exit) 退出队列");
+            System.out.println("a(add)  添加数据到队列");
+            System.out.println("g(get)  取出数据");
+            System.out.println("h(head)  队列头数据");
+
+            key = scanner.next().charAt(0);
+            switch (key) {
+                case 's':
+                    circleQueue.showQueue();
+                    break;
+                case 'a':
+                    System.out.println("请输入一个数字");
+                    int value = scanner.nextInt();
+                    circleQueue.addData(value);
+                    break;
+                case 'g':
+                    try {
+                        int data = circleQueue.getData();
+                        System.out.println("取出的数据 === " + data);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 'h':
+                    try {
+                        int head = circleQueue.head();
+                        System.out.println("头数据 == " + head);
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
+                    break;
+                case 'e':
+                    scanner.close();
+                    loop = false;
+
+                    break;
+                default:
+                    break;
+            }
+
+        }
+    }
 }
 
 class CircleQueue {
