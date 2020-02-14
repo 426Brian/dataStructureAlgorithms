@@ -112,13 +112,13 @@ class SingleLinkedList {
         boolean flag = false;
 
         while (tmp.next != null) {
-            tmp = tmp.next;
             if (tmp.no == newHeroNode.no) {
                 // 找到
                 tmp.nickName = newHeroNode.nickName;
                 flag = true;
                 break;
             }
+            tmp = tmp.next;
         }
 
         if (!flag) {
