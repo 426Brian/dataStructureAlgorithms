@@ -95,7 +95,7 @@ class DoubleLinkedList {
                 // 找到
                 curNode.next = tmp.next;
                 if (tmp.next != null) {
-                    // 不是最后一个节点
+                    // 不是最后一个节点 ***
                     tmp.next.pre = curNode;
                 }
 
