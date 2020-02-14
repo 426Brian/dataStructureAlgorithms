@@ -1,68 +1,70 @@
 package dataStructure;
 
+import java.util.Arrays;
+
 public class SparseArray {
     public static void main(String[] args) {
         // 创建原始二维数组 11 * 11
+        int row = 11, column = 11;
+        int[][] chessArr = new int[row][column];
         // 0 表示没有棋子， 1 表示黑子 2 表示篮子
-        int[][] chessArr = new int[11][11];
         chessArr[1][2] = 1;
         chessArr[2][3] = 2;
 
-        // 记录非 0 个数
-        int sum = 0;
 
-        System.out.println("原始二维数组 === ");
-        // 输出原始二维数组
+        // 记录非 0 个数
+        int count = 0;
         for (int[] arr : chessArr) {
-            for (int data : arr) {
-                System.out.print(data + "\t");
-                if (data != 0) {
-                    sum++;
+            for (int ele : arr) {
+                if (ele != 0) {
+                    count++;
                 }
             }
-            System.out.println();
         }
 
+        // 输出原始二维数组
+        System.out.println("原始二维数组");
+        printArr(chessArr);
+
         // 二维数组转成稀疏数组
-        int[][] sparseArr = new int[sum + 1][3];
-        sparseArr[0][0] = 11;
-        sparseArr[0][1] = 11;
-        sparseArr[0][2] = sum;
+        int[][] spareArr = new int[count + 1][3];
+        spareArr[0][0] = row;
+        spareArr[0][1] = column;
+        spareArr[0][2] = count;
 
         int tmp = 0;
         for (int i = 0; i < chessArr.length; i++) {
-            for (int j = 0; j < chessArr[i].length; j++) {
+            for (int j = 0; j < chessArr.length; j++) {
                 if (chessArr[i][j] != 0) {
-                    tmp += 1;
-                    sparseArr[tmp][0] = i;
-                    sparseArr[tmp][1] = j;
-                    sparseArr[tmp][2] = chessArr[i][j];
+                    tmp++;
+                    spareArr[tmp][0] = i;
+                    spareArr[tmp][1] = j;
+                    spareArr[tmp][2] = chessArr[i][j];
                 }
             }
-
         }
 
-        System.out.println("稀疏数组 === ");
         // 输出稀疏数组
-        for (int[] row : sparseArr) {
-            for (int data : row) {
-                System.out.print(data + "\t");
-            }
-            System.out.println();
-        }
+        System.out.println("稀疏数组");
+        printArr(spareArr);
 
         // 根据稀疏数组恢复二维数组
-        int[][] chessArr2 = new int[sparseArr[0][0]][sparseArr[0][1]];
-        for (int i = 1; i < sparseArr.length; i++) {
-            chessArr2[sparseArr[i][0]][sparseArr[i][1]] = sparseArr[i][2];
+        int[][] chessArr2 = new int[row][column];
+        for (int i = 1; i < spareArr.length; i++) {
+            chessArr2[spareArr[i][1]][spareArr[i][1]]  = spareArr[i][2];
         }
 
-        System.out.println("恢复后的二维数组 === ");
-        for (int[] row : chessArr2) {
-            for (int data : row) {
-                System.out.print(data + "\t");
+        // 恢复后的二维数组
+        System.out.println("恢复后的二维数组");
+        printArr(chessArr2);
+    }
+
+    public static void printArr(int[][] arr) {
+        if (arr != null) {
+            for (int[] a : arr) {
+                System.out.println(Arrays.toString(a));
             }
-            System.out.println();
         }
     }
+
 }
