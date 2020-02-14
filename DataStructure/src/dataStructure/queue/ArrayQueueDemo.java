@@ -28,7 +28,7 @@ public class ArrayQueueDemo {
                     break;
                 case 'g':
                     try {
-                        int data = arrayQueue.getData();
+                        int data = arrayQueue.pop();
                         System.out.println("取出的数据 === " + data);
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
@@ -58,17 +58,22 @@ public class ArrayQueueDemo {
 
 // 数组模拟队列
 class ArrayQueue {
-    private int maxSize;  // 数组最大容量
+    private int maxSize; // 最大容量
     private int front; // 队列头
     private int rear; // 队列尾
-    private int[] arr; // 存放数据
+    private int[] arr; // 存储数据
 
     // 创建队列
     public ArrayQueue(int maxSize) {
         this.maxSize = maxSize;
         arr = new int[maxSize];
-        front = -1; // 指向队列头部，前一个位置
-        rear = -1;  // 指向队列尾的具体位置
+        front = -1;
+        rear = -1;
+    }
+
+    // 队列是否空
+    public boolean isEmpty() {
+        return front == rear;
     }
 
     // 队列是否满
@@ -76,25 +81,19 @@ class ArrayQueue {
         return rear == maxSize - 1;
     }
 
-    // 队列是否空
-    public boolean isEmpty() {
-        return rear == front;
-    }
-
     // 添加数据到队列
-    public void addData(int data) {
+    public void addData(int ele) {
         if (isFull()) {
-            System.out.println("队列已满 === ");
+            System.out.println("队列已满");
             return;
         }
-
-        arr[++rear] = data;
+        arr[++rear] = ele;
     }
 
-    // 数据出队列
-    public int getData() {
+    // 从队列取出数据
+    public int pop() {
         if (isEmpty()) {
-            throw new RuntimeException("队列为空 ===");
+            throw new RuntimeException("队列为空");
         }
 
         return arr[++front];
@@ -103,21 +102,13 @@ class ArrayQueue {
     // 显示队列所有数据
     public void showQueue() {
         if (isEmpty()) {
-            System.out.println("队列为空 ===");
+            System.out.println("队列为空");
             return;
         }
 
-        // 遍历数组不够严谨, 如果队列中数据被取出过，或者没有放满都有bug
-        /*for (int data : arr) {
-            System.out.print(data + "\t");
-        }*/
-
-        // 从数组中取出有效数据
         for (int i = front; i < rear; ) {
             System.out.print(arr[++i] + "\t");
-
         }
-
     }
 
     // 显示头数据
@@ -128,4 +119,5 @@ class ArrayQueue {
 
         return arr[front + 1];
     }
+
 }
