@@ -31,7 +31,7 @@ public class SingleLinkedListDemo {
 
         System.out.println("反转前 ==== ");
         singleLinkedList.showList();
-        singleLinkedList.reverse();
+        singleLinkedList.reverse2();
         System.out.println("反转后 ==== ");
         singleLinkedList.showList();
 
@@ -218,7 +218,7 @@ class SingleLinkedList {
         return tmp;
     }
 
-    // 单链表反转
+    // 单链表反转(借助定义新的头节点)
     public void reverse() {
 
         if (isEmpty() || head.next.next == null) {
@@ -244,6 +244,23 @@ class SingleLinkedList {
 
 
         head.next = newNHead.next;
+    }
+
+    // 单链表反转
+    public void reverse2() {
+        HeroNode curNode = head.next;
+        HeroNode tmpHead = null;
+        HeroNode tmpNode = null;
+
+        while (curNode != null) {
+            tmpNode = curNode.next;
+            curNode.next = tmpHead;
+            tmpHead = curNode;
+            curNode =  tmpNode;
+
+        }
+
+        head.next = tmpHead;
     }
 
     // 从尾到头打印节点
