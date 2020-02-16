@@ -17,7 +17,7 @@ public class SelectSort {
         selectSort(arr2);
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序所用时间 "+(end-start)/1000+"s");
+        System.out.println("8万数据排序所用时间 " + (end - start) / 1000f + "s");
 
     }
 
@@ -25,9 +25,11 @@ public class SelectSort {
      *
      */
     public static void selectSort(int[] arr) {
+        int minIndex = 0;
+        int min = 0;
         for (int i = 0; i < arr.length - 1; i++) {
-            int minIndex = i;
-            int min = arr[i];
+            minIndex = i;
+            min = arr[i];
 
             for (int j = i + 1; j < arr.length; j++) {
                 if (min > arr[j]) {
@@ -46,6 +48,7 @@ public class SelectSort {
 //            System.out.println(Arrays.toString(arr));
         }
 
-
     }
+
+
 }
