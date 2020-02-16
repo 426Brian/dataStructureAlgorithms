@@ -22,9 +22,15 @@ public class ShellSort {
 
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序所用时间 " + (end - start));
+        System.out.println("8万数据排序交换法所用时间 " + (end - start)/1000f+"s");
 
+        long start2 = System.currentTimeMillis();
+//        ShellSort(arr2);
+        ShellSort2(arr2);
 
+        long end2 = System.currentTimeMillis();
+
+        System.out.println("8万数据排序移位法所用时间 " + (end2 - start2)/1000f+"s");
     }
 
     // 希尔排序交换法
