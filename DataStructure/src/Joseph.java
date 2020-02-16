@@ -38,6 +38,7 @@ class CircleSingleLinkedList {
                 curBoy = boy;
             }
         }
+
     }
 
     // 遍历单向环形链表
@@ -80,40 +81,38 @@ class CircleSingleLinkedList {
         Boy helper = first;
 
         // 将helper 移动到最后节点
-        while(true){
-            if(helper.getNext() == first){
-                // helper 指向最后的节点
-                break;
-            }
+        while (helper.getNext() != first){
+            // helper 指向最后的节点
             helper = helper.getNext();
         }
 
         // first 定位到开始数的小孩
-        for(int i = 0; i < startNo -1; i++){
+        // helper 定位first 前一个小孩
+        for (int i = 0; i < startNo - 1; i++) {
             first = first.getNext();
             helper = helper.getNext();
         }
 
         // 小孩报数, 并移出圈
-        while(true){
-            if(helper == first){
+        while (true) {
+            if (helper == first) {
                 // 圈中只有个一个节点
                 break;
             }
 
             // 让 first 和 helper 移动 countNum-1
-            for(int i = 0; i < countNum -1; i++){
+            for (int i = 0; i < countNum - 1; i++) {
                 first = first.getNext();
                 helper = helper.getNext();
             }
 
-            System.out.println("出圈的小孩编号 === "+first.getNo());
+            System.out.println("出圈的小孩编号 === " + first.getNo());
             // 出圈
             first = first.getNext();
             helper.setNext(first);
         }
 
-        System.out.println("最后留在圈中的小孩编号："+helper.getNo());
+        System.out.println("最后留在圈中的小孩编号：" + helper.getNo());
 
     }
 }
