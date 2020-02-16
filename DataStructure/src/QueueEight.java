@@ -47,7 +47,6 @@ public class QueueEight {
                 check(n + 1);
             }
             // 如果冲突， 就继续执行array[n] = i, 即将第n 个皇后， 放置在本行的后移一个位置
-
         }
 
     }

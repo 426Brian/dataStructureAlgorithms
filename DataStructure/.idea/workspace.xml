@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="8a1a9205-6621-4098-980d-44396549129b" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/QueueEight.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/QueueEight.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -37,10 +38,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/algorithm/RecursionTest.java">
+        <entry file="file://$PROJECT_DIR$/src/QueueEight.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+            <state relative-caret-position="427">
+              <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -111,8 +112,6 @@
         <option value="$PROJECT_DIR$/src/stack/ArrayStackDemo.java" />
         <option value="$PROJECT_DIR$/src/stack/PolandNotation.java" />
         <option value="$PROJECT_DIR$/src/algorithm/RecursionTest.java" />
-        <option value="$PROJECT_DIR$/src/Maze.java" />
-        <option value="$PROJECT_DIR$/src/QueueEight.java" />
         <option value="$PROJECT_DIR$/src/search/InsertValSearch.java" />
         <option value="$PROJECT_DIR$/src/search/FibonacciSearch.java" />
         <option value="$PROJECT_DIR$/src/search/FibonacciSearch2.java" />
@@ -148,6 +147,8 @@
         <option value="$PROJECT_DIR$/src/dataStructure/linkedList/DoubleLinkedListDemo.java" />
         <option value="$PROJECT_DIR$/src/dataStructure/linkedList/SingleLinkedListDemo.java" />
         <option value="$PROJECT_DIR$/src/Joseph.java" />
+        <option value="$PROJECT_DIR$/src/Maze.java" />
+        <option value="$PROJECT_DIR$/src/QueueEight.java" />
       </list>
     </option>
   </component>
@@ -158,8 +159,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="525" />
-    <option name="y" value="70" />
+    <option name="x" value="679" />
+    <option name="y" value="112" />
     <option name="width" value="1176" />
     <option name="height" value="968" />
   </component>
@@ -183,12 +184,6 @@
               <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="DataStructure" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DataStructure" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="algorithm" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -198,7 +193,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581832234478" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1581832506274" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -430,12 +425,12 @@
       <workItem from="1581142339946" duration="1996000" />
       <workItem from="1581665916215" duration="8449000" />
       <workItem from="1581744016939" duration="7435000" />
-      <workItem from="1581830447142" duration="1684000" />
+      <workItem from="1581830447142" duration="2058000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="684449000" />
+    <option name="totallyTimeSpent" value="684823000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -447,7 +442,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="543" y="101" width="1176" height="968" extended-state="1" />
+    <frame x="679" y="112" width="1176" height="968" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" order="0" />
@@ -455,7 +450,7 @@
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" sideWeight="0.74820143" side_tool="true" weight="0.34767026" />
-      <window_info content_ui="combo" id="Project" order="5" sideWeight="0.25179857" visible="true" weight="0.34767026" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.25179857" visible="true" weight="0.34767026" />
       <window_info id="Structure" order="6" sideWeight="0.74820143" side_tool="true" weight="0.34767026" />
       <window_info anchor="bottom" id="Extract Method" order="0" weight="0.32901555" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
@@ -465,7 +460,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.25813448" />
-      <window_info active="true" anchor="bottom" id="Run" order="8" visible="true" weight="0.35371703" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.35371703" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.43045563" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -488,9 +483,9 @@
       <window_info id="Designer" order="1" />
       <window_info id="UI Designer" order="2" />
       <window_info id="Capture Tool" order="3" />
-      <window_info id="Favorites" order="4" sideWeight="0.74545455" side_tool="true" weight="0.29659498" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.25267667" visible="true" weight="0.34767026" />
-      <window_info id="Structure" order="6" sideWeight="0.74732333" side_tool="true" weight="0.31272402" />
+      <window_info id="Favorites" order="4" sideWeight="0.74820143" side_tool="true" weight="0.34767026" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" sideWeight="0.25179857" visible="true" weight="0.34767026" />
+      <window_info id="Structure" order="6" sideWeight="0.74820143" side_tool="true" weight="0.34767026" />
       <window_info anchor="bottom" id="Extract Method" order="0" weight="0.32901555" />
       <window_info anchor="bottom" id="Docker" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="2" weight="0.32953104" />
@@ -499,7 +494,7 @@
       <window_info anchor="bottom" id="Event Log" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="6" />
       <window_info anchor="bottom" id="Find" order="7" weight="0.25813448" />
-      <window_info anchor="bottom" id="Run" order="8" visible="true" weight="0.35371703" />
+      <window_info anchor="bottom" id="Run" order="8" weight="0.35371703" />
       <window_info anchor="bottom" id="Debug" order="9" weight="0.43045563" />
       <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -575,31 +570,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/java/lang/Integer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="649" column="56" selection-start-line="649" selection-start-column="56" selection-end-line="649" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/java/lang/Character.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="9435" column="22" selection-start-line="9435" selection-start-column="22" selection-end-line="9435" selection-end-column="22" />
-          <folding>
-            <element signature="e#373582#373583#0" expanded="true" />
-            <element signature="e#373626#373627#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sort/RadixSort.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="39" lean-forward="true" selection-start-line="39" selection-end-line="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/software/Java/jdk10.0.2/lib/src.zip!/java.base/java/lang/StringBuffer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -978,10 +948,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/PlandNotation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="7" lean-forward="true" selection-start-column="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/algorithm/RecursionTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="24" lean-forward="true" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
+        <state relative-caret-position="272">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Maze.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="58" lean-forward="true" selection-start-line="58" selection-end-line="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/QueueEight.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="427">
+          <caret line="48" column="62" selection-start-line="48" selection-start-column="62" selection-end-line="48" selection-end-column="62" />
         </state>
       </provider>
     </entry>
