@@ -78,13 +78,13 @@ public class BubbleSort {
         // 优化 flag 表示是否进行过交换
         int tmp;
         boolean flag = false;
-        for (int j = 0; j < arr.length - 1; j++) {
-            for (int i = 0; i < arr.length - 1 - j; i++) {
-                if (arr[i] > arr[i + 1]) {
+        for (int i = 0; i < arr.length - 1; i++) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
                     flag = true;
-                    tmp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
+                    tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
                 }
 
             }
@@ -103,15 +103,15 @@ public class BubbleSort {
         System.out.println("优化后 ========= ");
         int tmp;
 
-        for (int j = 0; j < arr.length - 1; j++) {
+        for (int i = 0; i < arr.length - 1; i++) {
             // 优化 flag 表示是否进行过交换
             boolean flag = false;
-            for (int i = 0; i < arr.length - 1 - j; i++) {
-                if (arr[i] > arr[i + 1]) {
+            for (int j = 0; j < arr.length - 1 - i; j++) {
+                if (arr[j] > arr[j + 1]) {
                     flag = true;
-                    tmp = arr[i];
-                    arr[i] = arr[i + 1];
-                    arr[i + 1] = tmp;
+                    tmp = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = tmp;
                 }
 
             }
