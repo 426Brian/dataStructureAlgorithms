@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Maze {
     public static void main(String[] args) {
         int[][] map = new int[8][7];
