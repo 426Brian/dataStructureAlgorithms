@@ -18,7 +18,7 @@ public class InsertSort {
         insertSort(arr2);
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序所用时间 " + (end - start)/1000f+"s");
+        System.out.println("8万数据排序所用时间 " + (end - start) / 1000f + "s");
 
     }
 
@@ -62,6 +62,7 @@ public class InsertSort {
         System.out.println("第一轮插入 == ");
         System.out.println(Arrays.toString(arr));*/
     }
+
 }
 
 
