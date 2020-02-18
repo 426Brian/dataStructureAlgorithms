@@ -18,7 +18,7 @@ public class QuickSort {
         quickSort(arr2, 0, arr2.length - 1);
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序所用时间 " + (end - start));
+        System.out.println("8万数据排序所用时间 " + (end - start) / 1000f + "s");
     }
 
 
@@ -26,7 +26,7 @@ public class QuickSort {
         int l = left; // 左下标
         int r = right;// 右下标
         // pivot 中轴
-        int pivot = arr[(left + right) / 2];
+        int pivot = arr[(l + r) / 2];
 
         // 临时变量，用于交换
         int tmp = 0;
