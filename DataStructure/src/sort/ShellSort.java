@@ -5,9 +5,7 @@ import java.util.Arrays;
 public class ShellSort {
     public static void main(String[] args) {
         int[] arr = {8, 9, 1, 7, 2, 3, 5, 4, 6, 0};
-
-
-        ShellSort(arr);
+        shellSort2(arr);
 
         System.out.println("排序后 == " + Arrays.toString(arr));
 
@@ -17,35 +15,34 @@ public class ShellSort {
         }
 
         long start = System.currentTimeMillis();
-//        ShellSort(arr2);
-        ShellSort2(arr2);
+        shellSort(arr2);
+
 
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序交换法所用时间 " + (end - start)/1000f+"s");
+        System.out.println("8万数据排序交换法所用时间 " + (end - start) / 1000f + "s");
 
         long start2 = System.currentTimeMillis();
-//        ShellSort(arr2);
-        ShellSort2(arr2);
+        shellSort2(arr2);
 
         long end2 = System.currentTimeMillis();
 
-        System.out.println("8万数据排序移位法所用时间 " + (end2 - start2)/1000f+"s");
+        System.out.println("8万数据排序移位法所用时间 " + (end2 - start2) / 1f + "ms");
     }
 
     // 希尔排序交换法
-    public static void ShellSort(int[] arr) {
+    public static void shellSort(int[] arr) {
         int tmp = 0;
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
 
-            for (int i = gap; i < arr.length; i++) {
+            for (int i = 0; i < arr.length; i++) {
 
-                for (int j = i - gap; j >= 0; j -= gap) {
+                for (int j = i + gap; j < arr.length; j += gap) {
                     // 如果当前元素大于加上步长后的那个元素，交换
-                    if (arr[j] > arr[j + gap]) {
+                    if (arr[i] > arr[j]) {
                         tmp = arr[j];
-                        arr[j] = arr[j + gap];
-                        arr[j + gap] = tmp;
+                        arr[j] = arr[i];
+                        arr[i] = tmp;
 
                     }
                 }
@@ -56,10 +53,10 @@ public class ShellSort {
     }
 
     // 希尔排序移位法
-    public static void ShellSort2(int[] arr) {
+    public static void shellSort2(int[] arr) {
         int insertVal = 0;
         int insertIndex = 0;
-        
+
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
 
             for (int i = gap; i < arr.length; i++) {
@@ -83,49 +80,50 @@ public class ShellSort {
 
     }
 
-    public static void ShellSortOrigin(int[] arr) {
+    public static void shellSortOrigin(int[] arr) {
         int tmp = 0;
         // 希尔排序第一轮排序， 10 个数据分成 5 组
-        for (int i = 5; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             // 遍历各组中所有的元素(5 组，每组 2 个数字) 步长为 5
-            for (int j = i - 5; j >= 0; j -= 5) {
+            for (int j = i + 5; j < arr.length; j += 5) {
                 // 如果当前元素大于加上步长后的那个元素，交换
-                if (arr[j] > arr[j + 5]) {
+                if (arr[i] > arr[j]) {
                     tmp = arr[j];
-                    arr[j] = arr[j + 5];
-                    arr[j + 5] = tmp;
+                    arr[j] = arr[i];
+                    arr[i] = tmp;
 
                 }
             }
         }
         System.out.println("第一轮排序 == " + Arrays.toString(arr));
         // 希尔排序第二轮排序， 10 个数据分成 2 组
-        for (int i = 2; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             // 遍历各组中所有的元素(5 组，每组 2 个数字) 步长为 5
-            for (int j = i - 2; j >= 0; j -= 2) {
+            for (int j = i + 2; j < arr.length; j += 2) {
                 // 如果当前元素大于加上步长后的那个元素，交换
-                if (arr[j] > arr[j + 2]) {
+                if (arr[i] > arr[j]) {
                     tmp = arr[j];
-                    arr[j] = arr[j + 2];
-                    arr[j + 2] = tmp;
+                    arr[j] = arr[i];
+                    arr[i] = tmp;
 
                 }
             }
         }
         System.out.println("第二轮排序 == " + Arrays.toString(arr));
 
-        for (int i = 1; i < arr.length; i++) {
+        for (int i = 0; i < arr.length; i++) {
             // 遍历各组中所有的元素(5 组，每组 2 个数字) 步长为 5
-            for (int j = i - 1; j >= 0; j -= 1) {
+            for (int j = i + 1; j < arr.length; j += 1) {
                 // 如果当前元素大于加上步长后的那个元素，交换
-                if (arr[j] > arr[j + 1]) {
+                if (arr[i] > arr[j]) {
                     tmp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = tmp;
+                    arr[j] = arr[i];
+                    arr[i] = tmp;
 
                 }
             }
         }
         System.out.println("第二轮排序 == " + Arrays.toString(arr));
     }
+
 }
