@@ -17,7 +17,7 @@ public class RadixSort {
         radixSort(arr2);
         long end = System.currentTimeMillis();
 
-        System.out.println("8万数据排序所用时间 " + (end - start));
+        System.out.println("8万数据排序所用时间 " + (end - start)/1f+"ms");
     }
 
     public static void radixSort(int[] arr) {
@@ -35,26 +35,26 @@ public class RadixSort {
         int[][] bucket = new int[10][arr.length];
 
         // 记录每个桶中数据， 利用一个数组
-        int[] bucketElementCounts = new int[10];
-
-
+        int[] digitCount = new int[10];
+        int digit = -1;
+        int index = 0;
         for (int j = 0, n = 1; j < maxLength; j++, n *= 10) {
-            for (int i = 0; i < arr.length; i++) {
+            for (int ele : arr) {
                 // 取出每个元素的个位数
-                int digitOfElement = arr[i] / n % 10;
+                digit = ele / n % 10;
 
-                bucket[digitOfElement][bucketElementCounts[digitOfElement]] = arr[i];
-                bucketElementCounts[digitOfElement]++;
+                bucket[digit][digitCount[digit]++] = ele;
             }
-            int index = 0;
+
+            index = 0;
             for (int k = 0; k < 10; k++) {
                 // 如果桶中有数据， 才放到原数组
-                if (bucketElementCounts[k] > 0) {
-                    for (int l = 0; l < bucketElementCounts[k]; l++) {
+                if (digitCount[k] > 0) {
+                    for (int l = 0; l < digitCount[k]; l++) {
                         arr[index++] = bucket[k][l];
                     }
                     // 清空，为下一轮的初始数据做准备 !!!
-                    bucketElementCounts[k] = 0;
+                    digitCount[k] = 0;
 
                 }
             }
@@ -133,4 +133,6 @@ public class RadixSort {
         }
         System.out.println("第三轮处理完 === " + Arrays.toString(arr));
     }
+
+
 }
