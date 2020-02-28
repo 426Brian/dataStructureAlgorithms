@@ -92,10 +92,8 @@ class EmpLinkedList {
 
     // 判断是否为空
     public boolean isEmpty() {
-        if (head == null) {
-            return true;
-        }
-        return false;
+
+        return head == null;
     }
 
     // 添加员工
